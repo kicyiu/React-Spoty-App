@@ -1,0 +1,17 @@
+.navLinks {
+    color: white;
+    margin: 0 1rem;
+}
+
+div.me-auto.navbar-nav a {
+    color: white;
+    text-decoration: none;
+}
+
+div.me-auto.navbar-nav a:hover,
+div.me-auto.navbar-nav a:active,
+div.me-auto.navbar-nav a.active {
+  color: #b0bccc;;
+  padding-bottom: 0.25rem;
+  border-bottom: 4px solid #b0bccc;
+}
