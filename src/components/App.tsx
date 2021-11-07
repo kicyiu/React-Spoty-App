@@ -9,8 +9,8 @@ import {
     Redirect,
 } from 'react-router-dom';
 import NavBar from './shared/NavBar';
-import Home from '../modules/Home';
-import Search from '../modules/Search';
+import Home from '../pages/Home';
+import Search from '../pages/Search';
 import Artist from './artist/Artist';
 import { QueryClientProvider, QueryClient} from 'react-query';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../card/Card'
 
-function Cards(props: any): JSX.Element {
+const Cards = (props: any): JSX.Element => {
 
     return (
         <div className="card-columns m-5 animated fadeIn">

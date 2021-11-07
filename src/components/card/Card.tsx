@@ -6,10 +6,10 @@ import './Card.css';
 
 
 
-function Card(props: any): JSX.Element {
+const Card = (props: any): JSX.Element => {
     const history = useHistory();
 
-    function handleCardClick(): void {
+    const handleCardClick = (): void => {
         history.push(`/artist`, { artistId: props.id});
        // history.push({ pathname: '/artist', state: { artistId: props.id } });
     }
