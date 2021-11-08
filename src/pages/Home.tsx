@@ -47,6 +47,6 @@ const Home = (): JSX.Element => {
       {newMusics.length > 0 && <Cards musics={newMusics} />}
     </Fragment>
   );
-};
+}
 
 export default Home;
