@@ -29,7 +29,7 @@ const Home = (): JSX.Element => {
         }
       } else {
         setErrorMessage(resp.error.message);
-        console.log("getNewReleasesFromAPi error:", resp.error);
+        //console.log("getNewReleasesFromAPi error:", resp.error);
       }
       setLoading(false);
     });

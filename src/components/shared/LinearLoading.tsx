@@ -6,7 +6,7 @@ function LinearLoading(props: any): JSX.Element | null {
     const { classes, loading } = props;
 
     return (
-      loading === 'true' ? <LinearProgress {...props} classes={{colorPrimary: classes.colorPrimary, barColorPrimary: classes.barColorPrimary}}/> : null
+      loading === 'true' ? <LinearProgress data-testid="loading" {...props} classes={{colorPrimary: classes.colorPrimary, barColorPrimary: classes.barColorPrimary}}/> : null
     );
 }
 
