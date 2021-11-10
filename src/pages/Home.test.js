@@ -6,7 +6,7 @@ import Home from "./Home";
 import { act } from "@testing-library/react";
 
 
-describe("Home component", () => {
+describe("Home page", () => {
   /*test('renders releases if request succeeds', async () => {
         window.fetch = jest.fn();
         window.fetch.mockResolvedValueOnce({
