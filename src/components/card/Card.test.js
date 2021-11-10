@@ -11,12 +11,17 @@ jest.mock("react-router-dom", () => ({
 }));
 
 describe("Card component", () => {
+
   const item = {
     artistId: '5FB5E1fwFeVqpz2CCzRSve',
     name: 'test music name',
     artists: [],
     image: 'tes-image'
   }
+
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
 
   it("Should navigate to artist when click on card", async () => {
     const wrapper = shallow(<Card

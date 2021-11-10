@@ -1,12 +1,11 @@
 import React from 'react';
 import noImage from '../../assets/img/noimage.png';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import './Artist.css';
 import Track from '../track/Track';
 import { SpotifyServices } from '../../services/spotify.service';
 import { useQuery } from 'react-query';
 import { ReactQueryDevtools }  from "react-query/devtools";
-import { useLocation } from "react-router-dom";
 
 
 type Artist = {
@@ -81,7 +80,7 @@ function Artist(): JSX.Element {
                     </div>
         
                     <div className="col">
-                        <h3>{ artist.name }</h3>
+                        <h3 data-testid="artist-name">{ artist.name }</h3>
                         <p>
                         <a href={ artist.spotifyUrl } target="_blank" rel="noreferrer">
                             Ir a la página del artista
@@ -98,7 +97,7 @@ function Artist(): JSX.Element {
             )}
     
             { topTracks.length > 0 && (
-                <div className="row m-5">
+                <div className="row m-5" data-testid="top-tracks">
                     <div className="col">
                         <table className="table top-track-table">
                             <thead>

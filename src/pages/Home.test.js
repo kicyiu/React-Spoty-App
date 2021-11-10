@@ -46,8 +46,11 @@ describe("Home component", () => {
         "message": "The access token expired"
     }
   }
-  
 
+  afterEach(() => {
+    jest.resetAllMocks();
+  });
+  
   test("Get and render new relieses", async () => {
     window.fetch = jest.fn();
     window.fetch.mockResolvedValueOnce({
