@@ -2,23 +2,13 @@ import React, { useState } from "react";
 import SearchBar from "../components/search/SearchBar";
 import Cards from "../components/cards/Cards";
 import { SpotifyServices } from "../services/spotify.service";
-import Release , { ReleaseData } from "../models/release";
+import Release from "../models/release";
 import Wrapper from "../components/Helpers/Wrapper";
-
-const initArtistValue: ReleaseData = {
-    id: '',
-    name: '',
-    artists: [{
-        id: '',
-        name: '',
-    }],
-    image: '',
-  };
   
 
 const Search: React.FC = () => {
   const spoty = new SpotifyServices();
-  const [artists, setArtists] = useState<Release[]>([new Release(initArtistValue)]);
+  const [artists, setArtists] = useState<Release[] | []>([]);
   /* = {
         color: "white"
     }*/
@@ -52,7 +42,7 @@ const Search: React.FC = () => {
   return (
     <Wrapper>
       <SearchBar onSearch={searchArtists} />
-      {artists.length > 0 && artists[0].artistId != "" && (
+      {artists.length > 0 && (
         <Cards musics={artists} />
       )}
     </Wrapper>
