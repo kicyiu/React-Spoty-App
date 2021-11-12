@@ -8,7 +8,7 @@ import ErrorMessage from "../components/shared/ErrorMessage";
 
 const Search: React.FC = () => {
   const spoty = new SpotifyServices();
-  const [artists, setArtists] = useState<Release[] | []>([]);
+  const [artists, setArtists] = useState<Release[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
 
   async function searchArtists(term: string) {

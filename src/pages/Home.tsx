@@ -9,7 +9,7 @@ import ErrorMessage from "../components/shared/ErrorMessage";
 
 
 const Home: React.FC = () => {
-  const [newReleases, setNewReleases] = useState<Release[] | []>([]);
+  const [newReleases, setNewReleases] = useState<Release[]>([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
