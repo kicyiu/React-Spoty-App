@@ -2,7 +2,15 @@ import React from "react";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { withStyles } from '@material-ui/core/styles';
 
-function LinearLoading(props: any): JSX.Element | null {
+type LoadingProps = { 
+  classes: {
+    colorPrimary: string,
+    barColorPrimary: string
+  },
+  loading: string
+}
+
+const LinearLoading: React.FC<LoadingProps> = (props: LoadingProps) => {
     const { classes, loading } = props;
 
     return (
@@ -10,7 +18,7 @@ function LinearLoading(props: any): JSX.Element | null {
     );
 }
 
-const styles = props => ({
+const styles = () => ({
     colorPrimary: {
       backgroundColor: '#FFFFFF',
     },

@@ -24,7 +24,7 @@ type TopTrack = {
     }
 }
 
-function Artist(): JSX.Element {
+const Artist: React.FC = () => {
 
     const location = useLocation();
     const { artistId } = location.state;

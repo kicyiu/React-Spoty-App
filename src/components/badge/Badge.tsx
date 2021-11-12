@@ -5,7 +5,7 @@ type Artist = {
     name: string
 }
 
-function Badge(props: Artist): JSX.Element {
+const Badge: React.FC<Artist> = (props: Artist) => {
     return (
         <span className="badge badge-pill badge-primary">{props.name}</span>
     );

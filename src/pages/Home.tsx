@@ -1,10 +1,22 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { SpotifyServices } from "../services/spotify.service";
 import Cards from "../components/cards/Cards";
+import Release, { ReleaseData } from "../models/release";
 import LinearLoading from "../components/shared/LinearLoading";
 
-const Home = (): JSX.Element => {
-  const [newMusics, setNewMusics] = useState([]);
+
+const initReleaseValue: ReleaseData = {
+  id: '',
+  name: '',
+  artists: [{
+      id: '',
+      name: '',
+  }],
+  image: '',
+};
+
+const Home: React.FC = () => {
+  const [newReleases, setNewReleases] = useState<Release[]>([new Release(initReleaseValue)]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -25,7 +37,7 @@ const Home = (): JSX.Element => {
             artists: music.artists,
           }));
 
-          setNewMusics(musics);
+          setNewReleases(musics);
         }
       } else {
         setErrorMessage(resp.error.message);
@@ -44,7 +56,7 @@ const Home = (): JSX.Element => {
           <p>{errorMessage}</p>
         </div>
       )}
-      {newMusics.length > 0 && <Cards musics={newMusics} />}
+      {newReleases.length > 0 && newReleases[0].artistId != '' && <Cards musics={newReleases} />}
     </Fragment>
   );
 }

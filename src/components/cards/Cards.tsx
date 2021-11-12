@@ -1,14 +1,19 @@
 import React from 'react';
 import Card from '../card/Card'
+import  Release  from '../../models/release';
 
-const Cards = (props: any): JSX.Element => {
+type MusicProps = {
+    musics: Release[]
+}
+
+const Cards: React.FC<MusicProps> = (props: MusicProps) => {
 
     return (
         <div className="card-columns m-5 animated fadeIn">
             {props.musics.map(item => (
                 <Card
                     key={item.artistId}
-                    id={item.artistId}
+                    artistId={item.artistId}
                     name={item.name}
                     artists={item.artists ? item.artists : []}
                     image={item.image}

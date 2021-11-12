@@ -8,7 +8,7 @@ type SearchBarProps = {
     onSearch: (arg0: string) => void
 }
 
-function SearchBar(props: SearchBarProps): JSX.Element {
+ const SearchBar: React.FC<SearchBarProps> = (props: SearchBarProps) => {
 
     const [searchText, setSearchText]  = useState('');
 

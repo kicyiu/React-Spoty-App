@@ -1,7 +1,12 @@
 import React from 'react';
 import noImage from '../../assets/img/noimage.png';
+import TrackModel from '../../models/track';
 
-function Track(props: any): JSX.Element {
+type TrackProps = {
+    track: TrackModel
+}
+
+const Track: React.FC<TrackProps> = (props: TrackProps) => {
     //console.log("mapping tracks", props);
 
     const iframeStyle = {

@@ -2,15 +2,16 @@ import React from 'react';
 import Badge from '../badge/Badge';
 import noImage from '../../assets/img/noimage.png';
 import { useHistory } from "react-router-dom";
+import Release from '../../models/release';
 import './Card.css';
 
 
 
-const Card = (props: any): JSX.Element => {
+const Card: React.FC<Release> = (props: Release) => {
     const history = useHistory();
 
     const handleCardClick = (): void => {
-        history.push(`/artist`, { artistId: props.id});
+        history.push(`/artist`, { artistId: props.artistId});
        // history.push({ pathname: '/artist', state: { artistId: props.id } });
     }
 

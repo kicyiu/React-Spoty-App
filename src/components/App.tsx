@@ -16,7 +16,7 @@ import { QueryClientProvider, QueryClient} from 'react-query';
 
 const queryClient = new QueryClient();
 
-function App(): JSX.Element {
+const App: React.FC = () => { 
 
     return (
         <Router>

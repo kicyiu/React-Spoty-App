@@ -4,7 +4,7 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../../assets/img/banner-ico.png';
 import './NavBar.css';
 
-const NavBar = (): JSX.Element => {
+const NavBar: React.FC = () => {
 
     return (
         <Navbar expand="lg" bg="dark" variant="dark">
