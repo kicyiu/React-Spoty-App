@@ -4,49 +4,47 @@ import Cards from "../components/cards/Cards";
 import { SpotifyServices } from "../services/spotify.service";
 import Release from "../models/release";
 import Wrapper from "../components/Helpers/Wrapper";
-  
+import ErrorMessage from "../components/shared/ErrorMessage";
 
 const Search: React.FC = () => {
   const spoty = new SpotifyServices();
   const [artists, setArtists] = useState<Release[] | []>([]);
-  /* = {
-        color: "white"
-    }*/
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function searchArtists(term: string): void {
+  async function searchArtists(term: string) {
     console.log("init serachArtists term: ", term);
-    spoty
-      .searchArtists(term)
-      .then((data) => {
-        console.log("searchArtists resp: ", data);
-        if (data.artists) {
-          const artistsData = data.artists.items.map((artist) => ({
-            artistId: artist.id,
-            name: artist.name,
-            type: artist.type,
-            image:
-              artist.images && artist.images.length > 0
-                ? artist.images[0].url
-                : "",
-          }));
+    try {
+      const resp = await spoty.searchArtists(term);
+      if (resp.error) {
+        setErrorMessage(resp.error.message);
+        throw new Error(resp.error.message);
+      }
 
-          setArtists(artistsData);
-          //console.log("Artists search results: ", artists);
-        }
-      })
-      .catch((error) => {
-        console.log("searchArtists error: ", error);
-      });
+      const artistsData = resp.artists.items.map((artist) => ({
+        artistId: artist.id,
+        name: artist.name,
+        type: artist.type,
+        image:
+          artist.images && artist.images.length > 0 ? artist.images[0].url : "",
+      }));
+
+      setArtists(artistsData);
+    } catch (error) {
+      console.log("searchArtists error: ", error);
+    }
   }
 
   return (
     <Wrapper>
       <SearchBar onSearch={searchArtists} />
-      {artists.length > 0 && (
-        <Cards musics={artists} />
+      {errorMessage && (
+        <ErrorMessage>
+          {errorMessage}
+        </ErrorMessage>
       )}
+      {artists.length > 0 && <Cards musics={artists} />}
     </Wrapper>
   );
-}
+};
 
 export default Search;

@@ -3,6 +3,7 @@ import { SpotifyServices } from "../services/spotify.service";
 import Cards from "../components/cards/Cards";
 import Release from "../models/release";
 import LinearLoading from "../components/shared/LinearLoading";
+import ErrorMessage from "../components/shared/ErrorMessage";
 
 
 
@@ -43,10 +44,9 @@ const Home: React.FC = () => {
     <Fragment>
       <LinearLoading loading={loading.toString()} />
       {errorMessage && (
-        <div className="alert alert-danger animated fadeIn">
-          <h3>Error</h3>
-          <p>{errorMessage}</p>
-        </div>
+        <ErrorMessage>
+          {errorMessage}
+        </ErrorMessage>
       )}
       {newReleases.length > 0 && <Cards musics={newReleases} />}
     </Fragment>
