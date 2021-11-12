@@ -28,7 +28,7 @@ type SearchBarProps = {
     }
 
     function submitSearch() {
-        console.log('submitSearch', searchText);
+        //console.log('submitSearch', searchText);
         props.onSearch(searchText);
     }
 

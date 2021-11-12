@@ -12,7 +12,7 @@ const Search: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   async function searchArtists(term: string) {
-    console.log("init serachArtists term: ", term);
+    //console.log("init serachArtists term: ", term);
     try {
       const resp = await spoty.searchArtists(term);
       if (resp.error) {
@@ -20,13 +20,7 @@ const Search: React.FC = () => {
         throw new Error(resp.error.message);
       }
 
-      const artistsData = resp.artists.items.map((artist) => ({
-        artistId: artist.id,
-        name: artist.name,
-        type: artist.type,
-        image:
-          artist.images && artist.images.length > 0 ? artist.images[0].url : "",
-      }));
+      const artistsData = resp.artists.items.map((artist) => (new Release(artist)));
 
       setArtists(artistsData);
     } catch (error) {

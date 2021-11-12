@@ -19,17 +19,7 @@ const Home: React.FC = () => {
     spoty.getNewReleases().then((resp) => {
       if (!resp.error) {
         if (resp.albums && resp.albums.items.length > 0) {
-          const musics = resp.albums.items.map((music) => ({
-            artistId: music.type === "artist" ? music.id : music.artists[0].id,
-            name: music.name,
-            type: music.type,
-            image:
-              music.images && music.images.length > 0
-                ? music.images[0].url
-                : "",
-            artists: music.artists,
-          }));
-
+          const musics = resp.albums.items.map((music) => (new Release(music)));
           setNewReleases(musics);
         }
       } else {

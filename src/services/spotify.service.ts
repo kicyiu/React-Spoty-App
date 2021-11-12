@@ -3,7 +3,7 @@
 export class SpotifyServices {
 
     private API_END_POINT = "https://api.spotify.com/v1";
-    private API_KEY = "BQB-sTFYhDx17q-qPaDoHzOVmoB-ChhfRlEkqo9JuTYKRRfjQWxujwvty_kv3eZqM3rw4PUKwRPj49edWCk";
+    private API_KEY = "BQAfIwmgKY0QjF2lJnhzw-dknq_PhYFS8EXjjhkdVDpxEIIs6SMs8nM589WKfOyRF2ULiX7rA77CFPA2NYs";
     
     private getQuery(path: string): Promise<Response> {
         const url = `${this.API_END_POINT}/${path}`;
