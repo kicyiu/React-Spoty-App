@@ -3,6 +3,10 @@
     margin: 0 1rem;
 }
 
+.navbar {
+  margin-bottom: 60px;
+}
+
 div.me-auto.navbar-nav a {
     color: white;
     text-decoration: none;

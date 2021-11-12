@@ -21,7 +21,7 @@ const App: React.FC = () => {
     return (
         <Router>
             <NavBar />
-            <div className="container m-5">
+            <div className="content container">
                 <Switch>
                     <Route path="/home">
                         <Home/>

@@ -3,6 +3,11 @@ body {
     color: white !important;
 }
 
+.content {
+    height: auto;
+    margin: auto;
+}
+
 .badge {
     margin-left: 5px;
 }
